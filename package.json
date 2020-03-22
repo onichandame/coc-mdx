@@ -1,0 +1,130 @@
+{
+  "name": "coc-mdx",
+  "version": "0.0.0-development",
+  "description": "",
+  "author": "onichandame <zxinmyth@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "coc.nvim"
+  ],
+  "engines": {
+    "coc": "^0.0.70"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "prepare": "npm-run-all clean build"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.2",
+    "coc.nvim": "^0.0.75",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "activationEvents": [
+    "onLanguage:typescriptreact"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Coc mdx configuration",
+      "properties": {
+        "mdx.debug": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "Controls whether out debug info."
+        },
+        "mdx.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the language server."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "mdx",
+        "aliases": [
+          "Markdown React",
+          "MDX"
+        ],
+        "extensions": [
+          "mdx"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "mdx",
+        "scopeName": "text.html.markdown.jsx",
+        "path": "./syntaxes/mdx.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.js": "javascript",
+          "source.js.jsx": "javascriptreact",
+          "text.html.markdown": "markdown",
+          "meta.tag.js": "jsx-tags",
+          "meta.tag.without-attributes.js": "jsx-tags",
+          "meta.embedded.block.frontmatter": "yaml",
+          "meta.embedded.block.css": "css",
+          "meta.embedded.block.ini": "ini",
+          "meta.embedded.block.java": "java",
+          "meta.embedded.block.lua": "lua",
+          "meta.embedded.block.makefile": "makefile",
+          "meta.embedded.block.perl": "perl",
+          "meta.embedded.block.r": "r",
+          "meta.embedded.block.ruby": "ruby",
+          "meta.embedded.block.php": "php",
+          "meta.embedded.block.sql": "sql",
+          "meta.embedded.block.vs_net": "vs_net",
+          "meta.embedded.block.html": "html",
+          "meta.embedded.block.xml": "xml",
+          "meta.embedded.block.xsl": "xsl",
+          "meta.embedded.block.yaml": "yaml",
+          "meta.embedded.block.dosbatch": "dosbatch",
+          "meta.embedded.block.clojure": "clojure",
+          "meta.embedded.block.coffee": "coffee",
+          "meta.embedded.block.c": "c",
+          "meta.embedded.block.cpp": "cpp",
+          "meta.embedded.block.diff": "diff",
+          "meta.embedded.block.dockerfile": "dockerfile",
+          "meta.embedded.block.go": "go",
+          "meta.embedded.block.groovy": "groovy",
+          "meta.embedded.block.pug": "jade",
+          "meta.embedded.block.javascript": "javascript",
+          "meta.embedded.block.javascriptreact": "javascriptreact",
+          "meta.embedded.block.json": "json",
+          "meta.embedded.block.less": "less",
+          "meta.embedded.block.objc": "objc",
+          "meta.embedded.block.scss": "scss",
+          "meta.embedded.block.perl6": "perl6",
+          "meta.embedded.block.powershell": "powershell",
+          "meta.embedded.block.python": "python",
+          "meta.embedded.block.rust": "rust",
+          "meta.embedded.block.scala": "scala",
+          "meta.embedded.block.shellscript": "shellscript",
+          "meta.embedded.block.typescript": "typescript",
+          "meta.embedded.block.typescriptreact": "typescriptreact",
+          "meta.embedded.block.csharp": "csharp",
+          "meta.embedded.block.fsharp": "fsharp"
+        }
+      }
+    ]
+  },
+  "dependencies": {
+    "vscode-languageserver": "^5.2.1"
+  }
+}
