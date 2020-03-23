@@ -1,4 +1,4 @@
-import { commands, Thenable, TransportKind, ServerOptions, LanguageClientOptions, LanguageClient, CompleteResult, ExtensionContext, listManager, sources, workspace } from 'coc.nvim';
+import { Thenable, TransportKind, ServerOptions, LanguageClientOptions, LanguageClient, ExtensionContext, workspace } from 'coc.nvim';
 import { join } from 'path'
 
 const extensionId = 'coc-mdx'
